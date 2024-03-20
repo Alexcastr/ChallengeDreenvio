@@ -16,7 +16,7 @@ To install and run this application, follow these steps:
 
 1. Clone the repository.
 2. Install the dependencies with `npm install`.
-3. Start the server with `npm run dev`.
+3. Start the server with `npm run start`.
 
 ## Usage
 
@@ -27,6 +27,9 @@ The database name is snekersDB
 ## To-Do, To Improve
 
 - Add testing to the project
+- Add a bearer token, only who has it, can access
+- Make a relation between the collections for better handling the data
+- Add swagger for documentation 
 👍 Add data validation
 👍 Deploy the app
 
