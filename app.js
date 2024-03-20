@@ -9,6 +9,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the dreenvio API');
+});
+
 app.use('/products', productRouter);
 app.use('/price', clientRouter);
 
