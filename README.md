@@ -29,9 +29,10 @@ The database name is snekersDB
 - Add testing to the project
 - Add a bearer token, only who has it, can access
 - Make a relation between the collections for better handling the data
-- Add swagger for documentation 
-👍 Add data validation
-👍 Deploy the app
+- Add swagger for documentation
+- Use TypeScript instead of JS
+-👍 Add data validation
+-👍 Deploy the app
 
 ---
 ## Deployment
