@@ -31,8 +31,9 @@ The database name is snekersDB
 👍 Deploy the app
 
 ---
+## Deployment
 
-Throughout the day, I plan to complete the to-do list. Currently, the app is functioning according to the given task.
+The application is deployed at https://challenge-dreenvio.vercel.app/
 
 ## Encountered Difficulties
 
