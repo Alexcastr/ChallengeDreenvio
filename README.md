@@ -31,8 +31,9 @@ The database name is snekersDB
 - Make a relation between the collections for better handling the data
 - Add swagger for documentation
 - Use TypeScript instead of JS
--👍 Add data validation
--👍 Deploy the app
+- 👍 Add data validation
+- 👍 Deploy the app
+
 
 ---
 ## Deployment
