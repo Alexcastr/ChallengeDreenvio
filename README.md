@@ -22,11 +22,13 @@ To install and run this application, follow these steps:
 
 To use the application, send a GET request to the `/products` route to get all products in stock. Send a GET request to the `/price/{user_id}/{nombre_producto}` route to get the special price for a given client and brand.
 
+The database name is snekersDB
+
 ## To-Do, To Improve
 
 - Add testing to the project
-- Add data validation
-- Deploy the app
+👍 Add data validation
+👍 Deploy the app
 
 ---
 

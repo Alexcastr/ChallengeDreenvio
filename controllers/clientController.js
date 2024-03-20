@@ -2,16 +2,19 @@ import { connect, disconnect } from '../db.js';
 import Client from '../models/Client.js';
 import Product from '../models/Product.js';
 import isValidObjectId from '../utils/IsValidObjectId.js';
+import { matchedData, validationResult } from 'express-validator';
 
 export const createClient = async (req, res) => {
-  // const { name, brand, price, inStock } = req.body;
-  console.log('req.body', req.body);
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) return res.status(400).json(errors.array());
+  const data = matchedData(req);
+
   try {
     await connect();
 
-    const createClient = await Client.create(req.body);
+    const createClient = await Client.create(data);
 
-    console.log('Client created', createClient);
     res.status(201).json({ message: 'Client created', data: createClient });
   } catch (error) {
     console.log('Error', error);
@@ -23,17 +26,18 @@ export const createClient = async (req, res) => {
 
 export const getSpecialPrice = async (req, res) => {
   const id = req.params.id;
-  const productBrand = req.query.brand;
 
   if (!isValidObjectId(id)) {
     return res.status(400).json({ message: 'Invalid id' });
   }
 
-  if (!productBrand) {
-    return res.status(400).json({ message: 'Brand is required' });
+  const result = validationResult(req);
+
+  if (!result.isEmpty()) {
+    return res.status(400).json(result.array());
   }
 
-  console.log('productBrand', productBrand);
+  const { brand } = matchedData(req);
 
   try {
     await connect();
@@ -44,7 +48,7 @@ export const getSpecialPrice = async (req, res) => {
       res.status(404).json({ message: 'client not found' });
     } else {
       const isBrand = clientFound.specialPricing.find(
-        (item) => item.brand.toLowerCase() === productBrand.toLowerCase()
+        (item) => item.brand.toLowerCase() === brand.toLowerCase()
       );
 
       console.log('isBrand', isBrand);
@@ -55,7 +59,7 @@ export const getSpecialPrice = async (req, res) => {
           .json({ message: 'Special price found', data: specialPrice });
       } else {
         const productFound = await Product.findOne({
-          brand: productBrand.toLowerCase()
+          brand: brand.toLowerCase()
         });
 
         console.log('productFound', productFound);
