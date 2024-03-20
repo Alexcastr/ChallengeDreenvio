@@ -2,8 +2,7 @@ import { connect, disconnect } from '../db.js';
 import Product from '../models/Product.js';
 
 export const createProduct = async (req, res) => {
-  // const { name, brand, price, inStock } = req.body;
-  console.log('req.body', req.body);
+  // console.log('req.body', req.body);
   try {
     await connect();
 

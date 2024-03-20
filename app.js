@@ -8,13 +8,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 app.use(express.json());
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
-// app.get('/products', async (req, res) => {
-//   await connect();
-// });
 
 app.use('/products', productRouter);
 app.use('/price', clientRouter);
